@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>父页面</title>
+  </head>
+  <script src="./JYGame_Sdk.js"></script>
+  <body style="border:5px solid #333;">
+    <h1>this is index</h1>
+
+    <iframe src="./iframePage.html" id="myframe"></iframe>
+
+    <script>
+      //获取iframe元素
+      iFrame = document.getElementById("myframe");
+
+      //iframe加载完毕后再发送消息，否则子页面接收不到message
+      iFrame.onload = function() {
+        //iframe加载完立即发送一条消息
+        console.log("向游戏发送数据");
+        iFrame.contentWindow.postMessage("MessageFromIndex", "*");
+      };
+
+      //回调函数
+      function receiveMessageFromIframePage(event) {
+        console.log("H5页面收到游戏传来的数据");
+        console.log("receiveMessageFromIframePage", event);
+        var action =
+          event && event.data && event.data.action ? event.data.action : false;
+        var result =
+          event && event.data && event.data.data ? event.data.data : {};
+        if (!action) {
+          return false;
+        }
+        switch (action) {
+          case "login":
+            jyyx_sdk["login"](res => {
+              console.log("向游戏发送数据");
+              iFrame.contentWindow.postMessage({action:"login",data:res}, "*");
+            });
+            break;
+
+          default:
+            break;
+        }
+      }
+
+      //监听message事件
+      window.addEventListener("message", receiveMessageFromIframePage, false);
+    </script>
+  </body>
+</html>

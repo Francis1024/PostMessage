@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>子页面</title>
+    <script src="https://sdk.7yol.cn/static/js/JYSdk.js"></script>
+  </head>
+  <body style="border:5px solid #333;">
+    <h1>this is iframePage</h1>
+    <button onclick="textOnclick1()">登录</button>
+    <button onclick="textOnclick2()">注销</button>
+    <button onclick="textOnclick3()">支付</button>
+    <button onclick="textOnclick4()">创建角色</button>
+    <button onclick="textOnclick5()">进入游戏</button>
+    <button onclick="textOnclick6()">角色升级</button>
+    <script>
+      function textOnclick1() {
+        JYSdk.login(function(status, callback) {
+          console.log(status);
+          console.log(callback);
+        });
+      }
+      function textOnclick2() {
+        JYSdk.logout(function(status, callback) {
+          console.log(status);
+          console.log(callback);
+        });
+      }
+      function textOnclick3() {
+        JYSdk.buy(
+          {
+            // 用户id
+            user_id: "11131",
+            // 用户手机号
+            username: "18873461234",
+            productid: "1",
+            productname: "1",
+            productdesc: "1",
+            price: "1",
+            roleid: "1",
+            rolename: "1",
+            cpbill: "1",
+            extension: "1",
+            serverid: "1",
+            servername: "1",
+            channel_id: "1",
+            apple_product_id: "1"
+          },
+          function(status, callback) {
+            console.log(status);
+            console.log(callback);
+          }
+        );
+      }
+      function textOnclick4() {
+        JYSdk.createRoles(
+          {
+            type: "create",
+            role_id: "1",
+            role_name: "xxx",
+            role_lev: "11",
+            server_id: "22",
+            server_name: "xxx"
+          },
+          function(status, callback) {
+            console.log(status);
+            console.log(callback);
+          }
+        );
+      }
+      function textOnclick5() {
+        JYSdk.enterGame(
+          {
+            type: "enter",
+            role_id: "1",
+            role_name: "xxx",
+            role_lev: "11",
+            server_id: "22",
+            server_name: "xxx"
+          },
+          function(status, callback) {
+            console.log(status);
+            console.log(callback);
+          }
+        );
+      }
+      function textOnclick6() {
+        JYSdk.roleLevelup(
+          {
+            type: "levelup",
+            role_id: "1",
+            role_name: "xxx",
+            role_lev: "11",
+            server_id: "22",
+            server_name: "xxx"
+          },
+          function(status, callback) {
+            console.log(status);
+            console.log(callback);
+          }
+        );
+      }
+    </script>
+  </body>
+</html>
