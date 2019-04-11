@@ -16,6 +16,11 @@
     <button onclick="textOnclick5()">进入游戏</button>
     <button onclick="textOnclick6()">角色升级</button>
     <script>
+      //监听message事件
+      window.addEventListener("message", receiveMessageFromIndex, false);
+      function receiveMessageFromIndex(event) {
+        console.log("接收来自客户端的值", event);
+      }
       function textOnclick1() {
         JYSdk.login(function(status, callback) {
           console.log(status);
