@@ -1,5 +1,5 @@
 /**
- * zuotaiyu-2019-03-29
+ * zuotaiyu-2019-04-11
  *  */
 window.JYSdk = (function(w, d, p) {
   const PARTNER_SDK = h5Sdk();
@@ -75,7 +75,7 @@ window.JYSdk = (function(w, d, p) {
       },
       buy: function(data, callback) {
         callbacks["buy"] = typeof callback == "function" ? callback : null;
-        this.postTopMessage("buy");
+        this.postTopMessage("buy", data);
       },
       createRoles: function(data, callback) {
         callbacks["createRoles"] =
