@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>游戏</title>
+  </head>
+  <body style="border:5px solid #333;">
+    <h1>this is Game</h1>
+    <button onclick="textOnclick1()">登录</button>
+    <button onclick="textOnclick2()">注销</button>
+    <button onclick="textOnclick3()">支付</button>
+    <button onclick="textOnclick4()">创建角色</button>
+    <button onclick="textOnclick5()">进入游戏</button>
+    <button onclick="textOnclick6()">角色升级</button>
+    <button onclick="textOnclick7()">初始化</button>
+    <script>
+      // 登录
+      function textOnclick1() {
+        JYNative.onLogin();
+        location.reload(false);
+      }
+      // 注销
+      function textOnclick2() {
+        JYNative.onLogout();
+        location.reload(false);
+      }
+      // 支付
+      function textOnclick3() {
+        const params = {
+          productid: "1",
+          productname: "1",
+          productdesc: "1",
+          price: "1",
+          roleid: "1",
+          rolename: "1",
+          cpbill: "1",
+          extension: "1",
+          serverid: "1",
+          servername: "1",
+          channel_id: "1",
+          apple_product_id: "1"
+        };
+        JYNative.onPay(JSON.stringify(params));
+        location.reload(false);
+      }
+      // 创建角色
+      function textOnclick4() {
+        const params = {
+          role_id: "1",
+          role_name: "xxx",
+          role_lev: "11",
+          server_id: "22",
+          server_name: "xxx"
+        };
+        JYNative.onCreateRole(JSON.stringify(params));
+        location.reload(false);
+      }
+      function textOnclick5() {
+        const params = {
+          role_id: "1",
+          role_name: "xxx",
+          role_lev: "11",
+          server_id: "22",
+          server_name: "xxx"
+        };
+        JYNative.onEnterGame(JSON.stringify(params));
+        location.reload(false);
+      }
+      function textOnclick6() {
+        const params = {
+          role_id: "1",
+          role_name: "xxx",
+          role_lev: "11",
+          server_id: "22",
+          server_name: "xxx"
+        };
+
+        JYNative.onRoleUpLevel(JSON.stringify(params));
+        location.reload(false);
+      }
+      function textOnclick7() {
+        JYNative.onInit();
+        location.reload(false);
+      }
+    </script>
+  </body>
+</html>
