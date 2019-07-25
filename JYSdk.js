@@ -16,7 +16,7 @@ window.JYSdk = (function(w, d, p) {
 
         if (!action) {
           return false;
-        }
+        } 
         switch (action) {
           case "login":
             if (result.state) {

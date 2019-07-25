@@ -19,70 +19,83 @@
       // 登录
       function textOnclick1() {
         JYNative.onLogin();
-        location.reload(false);
       }
       // 注销
       function textOnclick2() {
         JYNative.onLogout();
-        location.reload(false);
       }
       // 支付
       function textOnclick3() {
-        const params = {
-          productid: "1",
-          productname: "1",
-          productdesc: "1",
-          price: "1",
-          roleid: "1",
-          rolename: "1",
-          cpbill: "1",
-          extension: "1",
-          serverid: "1",
-          servername: "1",
-          channel_id: "1",
-          apple_product_id: "1"
+        let params = {
+          userId: "488427",
+          cpBill: "1111",
+          price: 1,
+          productDesc: "xxx",
+          productId: "1111",
+          productName: "xxx",
+          roleId: "1111",
+          roleName: "xxxx",
+          roleLevel: 1,
+          serverId: "1111",
+          serverName: "xxx",
+          payNotifyUrl: "htts://xxxxxxx"
         };
         JYNative.onPay(JSON.stringify(params));
-        location.reload(false);
       }
       // 创建角色
       function textOnclick4() {
-        const params = {
-          role_id: "1",
-          role_name: "xxx",
-          role_lev: "11",
-          server_id: "22",
-          server_name: "xxx"
+        let params = {
+          roleId: "1",
+          roleName: "xxx",
+          roleLevel: "11",
+          serverId: "22",
+          serverName: "xxx",
+          roleCreateTime: "1456397360"
         };
         JYNative.onCreateRole(JSON.stringify(params));
-        location.reload(false);
       }
+      // 进入游戏
       function textOnclick5() {
-        const params = {
-          role_id: "1",
-          role_name: "xxx",
-          role_lev: "11",
-          server_id: "22",
-          server_name: "xxx"
+        let params = {
+          roleId: "1",
+          roleName: "xxx",
+          roleLevel: "11",
+          serverId: "22",
+          serverName: "xxx",
+          roleCreateTime: "1456397360"
         };
         JYNative.onEnterGame(JSON.stringify(params));
-        location.reload(false);
       }
+      // 角色升级
       function textOnclick6() {
-        const params = {
-          role_id: "1",
-          role_name: "xxx",
-          role_lev: "11",
-          server_id: "22",
-          server_name: "xxx"
+        let params = {
+          roleId: "1",
+          roleName: "xxx",
+          roleLevel: "11",
+          serverId: "22",
+          serverName: "xxx",
+          roleCreateTime: "1456397360"
         };
 
         JYNative.onRoleUpLevel(JSON.stringify(params));
-        location.reload(false);
       }
+      // 初始化
       function textOnclick7() {
         JYNative.onInit();
-        location.reload(false);
+      }
+      // 初始化回调
+      function onInitCallback(res) {
+        alert(JSON.stringify(res));
+      }
+      // 登录回调
+      function onLoginCallback(res) {
+        alert(JSON.stringify(res));
+        if (res.state == 1) {
+        }
+      }
+      // 注销回调
+      function onLogoutCallback(res) {
+        alert(JSON.stringify(res));
       }
     </script>
   </body>
