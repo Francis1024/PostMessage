@@ -24,7 +24,7 @@
 
       //回调函数
       function receiveMessageFromIframePage(event) {
-        console.log("H5页面收到游戏传来的数据", event);
+        console.log("父页面", event);
         var action =
           event && event.data && event.data.action ? event.data.action : false;
         var result =
